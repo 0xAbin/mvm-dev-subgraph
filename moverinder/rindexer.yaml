@@ -1,0 +1,25 @@
+name: movrin
+description: movment-rindeer
+repository: /
+project_type: no-code
+networks:
+- name: mevm
+  chain_id: 30732
+  rpc: https://mevm.devnet.imola.movementlabs.xyz
+storage:
+  postgres:
+    enabled: true
+  csv:
+    enabled: true
+    path: ./generated_csv
+contracts:
+- name: FaucetVault
+  details:
+  - network: mevm
+    address: 0xF53C0Ba1461e5039628D39C66DB6723786F5D41E
+    start_block: '4092222'
+    end_block: '4392222'
+  abi: ./abis/abi.json
+include_events:
+- OwnershipTransferred(address,address)
+
