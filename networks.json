@@ -1,8 +1,0 @@
-{
-  "arbitrum-sepolia": {
-    "FaucetVault": {
-      "address": "0x3cEfd82938c8cc97C334aeA44b572C173EEe2D50",
-      "startBlock": 62737843
-    }
-  }
-}
