@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: FaucetVault
-    network: arbitrum-sepolia
+    network: devnet
     source:
-      address: "0x3cEfd82938c8cc97C334aeA44b572C173EEe2D50"
+      address: "0xF53C0Ba1461e5039628D39C66DB6723786F5D41E"
       abi: FaucetVault
-      startBlock: 62737843
+      startBlock: 2951009
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
