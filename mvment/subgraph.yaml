@@ -1,0 +1,44 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FaucetVault
+    network: arbitrum-sepolia
+    source:
+      address: "0x3cEfd82938c8cc97C334aeA44b572C173EEe2D50"
+      abi: FaucetVault
+      startBlock: 62737843
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CooldownToggled
+        - CooldownUpdated
+        - EthClaimed
+        - EthDeposited
+        - OwnershipTransferred
+        - TokensClaimed
+        - TokensDeposited
+      abis:
+        - name: FaucetVault
+          file: ./abis/FaucetVault.json
+      eventHandlers:
+        - event: CooldownToggled(bool)
+          handler: handleCooldownToggled
+        - event: CooldownUpdated(uint256)
+          handler: handleCooldownUpdated
+        - event: EthClaimed(indexed address,uint256)
+          handler: handleEthClaimed
+        - event: EthDeposited(indexed address,uint256)
+          handler: handleEthDeposited
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: TokensClaimed(indexed address,indexed address,uint256)
+          handler: handleTokensClaimed
+        - event: TokensDeposited(indexed address,indexed address,uint256)
+          handler: handleTokensDeposited
+      file: ./src/faucet-vault.ts
